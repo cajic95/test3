@@ -1,5 +1,9 @@
 package objs;
 
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,6 +23,10 @@ public class Inventory {
 		
 	}
 
-	
-
+	public static <T, U> List<U> convertStringListToDoubleList(List<T> listOfString, Function<T, U> function) 
+   { 
+       return listOfString.stream() 
+           .map(function) 
+           .collect(Collectors.toList()); 
+   }
 }
